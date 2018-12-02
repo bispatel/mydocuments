@@ -1,0 +1,26 @@
+How token-based authentication works
+In token-based authentication, the client exchanges hard credentials (such as username and password) for a piece of data called token. For each request, instead of sending the hard credentials, the client will send the token to the server to perform authentication and then authorization.
+
+In a few words, an authentication scheme based on tokens follow these steps:
+
+The client sends their credentials (username and password) to the server.
+The server authenticates the credentials and, if they are valid, generate a token for the user.
+The server stores the previously generated token in some storage along with the user identifier and an expiration date.
+The server sends the generated token to the client.
+The client sends the token to the server in each request.
+The server, in each request, extracts the token from the incoming request. With the token, the server looks up the user details to perform authentication.
+If the token is valid, the server accepts the request.
+If the token is invalid, the server refuses the request.
+Once the authentication has been performed, the server performs authorization.
+The server can provide an endpoint to refresh tokens.
+Note: The step 3 is not required if the server has issued a signed token (such as JWT, which allows you to perform stateless authentication).
+
+
+https://github.com/Posya/wiki/blob/master/best-practice-for-rest-token-based-authentication-with-jax-rs-and-jersey.adoc
+https://antoniogoncalves.org/2016/10/03/securing-jax-rs-endpoints-with-jwt/
+https://dzone.com/articles/json-web-token-in-action-with-jax-rs
+https://howtodoinjava.com/jersey/jersey-rest-security/
+http://appsdeveloperblog.com/token-based-authentication-example/
+https://dzone.com/articles/secure-rest-services-using
+https://dzone.com/articles/secure-spring-rest-with-spring-security-and-oauth2
+https://examples.javacodegeeks.com/core-java/security/spring-security-spring-rest-web-service/
